@@ -13,4 +13,4 @@ const comp = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Competence", comp)
+// module.exports = mongoose.model("Competence", comp)
