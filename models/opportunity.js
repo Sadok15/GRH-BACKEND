@@ -1,6 +1,5 @@
 
 const mongoose = require('mongoose');
-
 const opportunityModel = mongoose.Schema({
     title: { 
         type: String, 
@@ -9,6 +8,8 @@ const opportunityModel = mongoose.Schema({
         type: String
     },
     societe_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Societe"
 
     },
     max_renumeration: {
@@ -59,3 +60,4 @@ const StatusModel = mongoose.Schema({
   module.exports = Opportunity_condidat= mongoose.model('Opportunity_condidat', opportunity_condModel);
   module.exports = Contrat= mongoose.model('Contrat', ContratModel);
   module.exports = Status= mongoose.model('Status', StatusModel);
+  
