@@ -1,9 +1,6 @@
 const mongoose = require("mongoose")
 
-
-const Candidat = mongoose.Schema({
-
-    id_cand : {type: Number},
+const Candidat_schema = mongoose.Schema({
 
     mail : {
         type: String,
@@ -16,14 +13,12 @@ const Candidat = mongoose.Schema({
     }
 })
 
-const cv_candidate = mongoose.Schema({
+const cv_schema = mongoose.Schema({
 
-    id_cv :{type: Number},
-
-    id_cand :
-        {type: mongoose.Schema.Types.ObjectId, ref: 'Candidate'}
-    ,
-    
+    id_cand : {
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Candidat"
+    },
     github : {
         type: String,
     },
@@ -31,5 +26,5 @@ const cv_candidate = mongoose.Schema({
 })
 
 
-module.exports = cv = mongoose.model("CV", cv_candidate)
-module.exports = Candidate = mongoose.model("Candidat", Candidat)
+module.exports = cv = mongoose.model("CV", cv_schema)
+module.exports = Candidate = mongoose.model("Candidat", Candidat_schema)

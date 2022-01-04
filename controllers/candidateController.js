@@ -1,4 +1,9 @@
-var cv = require("../models/candidat")
+const mongoose = require("mongoose")
+
+// declare models
+
+var Candidate = require("../models/candidat")
+var cv = require("mongoose").model('CV')
 
 
 
@@ -6,11 +11,10 @@ exports.get_candidate =  async function(req,res){
 
     try{
         
-        const cands =  await Candidate.findOne(
-                {}
-                // { mail: req.body.mail },
-                // { mdp: req.body.mdp }
-            
+        const cands =  await Candidate.find(
+                { mail: req.body.mail },
+                { mdp: req.body.mdp }
+            // {}
         ).exec()
 
         res.send(cands)
@@ -21,28 +25,23 @@ exports.get_candidate =  async function(req,res){
 }
 
 
-exports.save_candidate = async function(req, res){
-
-    const cand = new Candidate({
-        
-        id_cand: req.body.id_cand,
-        mail: req.body.mail,
-        mdp: req.body.mdp,
-        num_tel: req.body.tel,
-    })
-
-    await cand.save()
-    res.send(cand)
-    console.log("Candidat Ajouté")
-}
-
 
 exports.add_cv_candidate = async function(req, res){
+    
+    const candidate = new Candidate({
+        mail: req.body.candidate.mail,
+        mdp: req.body.candidate.mdp,
+        num_tel: req.body.candidate.num_tel,
+    }) 
+    await candidate.save()
+
+    console.log("Candidat Ajouté")
 
     const cv_cand = new cv()
-    cv_cand.id_cv = 1,
-    cv_cand.id_cand = Candidate.findOne({id:1}) ,
-    cv_cand.githhub = "github/sadok15",
+
+    cv_cand.id_cand = candidate._id
+    cv_cand.github = req.body.github
+
     await cv_cand.save()
     res.send(cv_cand)
     console.log("cv Ajouté")
