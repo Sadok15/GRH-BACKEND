@@ -10,10 +10,6 @@ exports.add_contrat = async function(req, res){
         libelle: req.body.contrat.libelle,
     }) 
     await contrat.save()
-
-  
-    
-
     res.send(contrat)
     console.log("contrat Ajouté")
 }

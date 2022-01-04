@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const SocieteModel = mongoose.Schema({
-    Nom: { 
+    nom: { 
         type: String, 
     },
     description: {

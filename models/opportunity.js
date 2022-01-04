@@ -33,19 +33,11 @@ const opportunityModel = mongoose.Schema({
     }
   })
 
+
+
+
+
 const opportunity_condModel = mongoose.Schema({
-    libelle: {
-        type:String
-    },
-  })
-const ContratModel = mongoose.Schema({
-    libelle: {
-        type:String
-    },
-  })
-
-
-const StatusModel = mongoose.Schema({
     id_opportunity: { 
         type:mongoose.Schema.Types.ObjectId,
         ref: "Opportunity"
@@ -58,6 +50,5 @@ const StatusModel = mongoose.Schema({
   
   module.exports = Opportunity= mongoose.model('Opportunity', opportunityModel);
   module.exports = Opportunity_condidat= mongoose.model('Opportunity_condidat', opportunity_condModel);
-  module.exports = Contrat= mongoose.model('Contrat', ContratModel);
-  module.exports = Status= mongoose.model('Status', StatusModel);
+
   
