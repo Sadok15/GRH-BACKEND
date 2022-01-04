@@ -7,11 +7,11 @@ const SocieteModel = mongoose.Schema({
     description: {
         type: String
     },
-    Adresse:{
+    adresse:{
         type: String
     },
-    Postal_code :{
-        type: Number
+    postal_code :{
+        type: String
     },
    
   })

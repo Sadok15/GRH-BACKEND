@@ -39,8 +39,9 @@ exports.add_cv_candidate = async function(req, res){
         mdp: req.body.candidate.mdp,
         num_tel: req.body.candidate.num_tel,
     }) 
+    console.log(candidate.mail)
     await candidate.save()
-
+   
     // add cv 
     const cv_cand = new cv()
 
@@ -61,7 +62,7 @@ exports.add_cv_candidate = async function(req, res){
 
     // add experience
 
-    for(var i=1; i<= req.body.experiences.length ; i++ ){
+    for(var i=1; i<= req.body.experiences.length-1; i++ ){
 
         exp_dict = req.body.experiences[i]
         const exp = new experience()

@@ -10,16 +10,12 @@ const opportunityModel = mongoose.Schema({
     societe_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Societe"
-
     },
-    max_renumeration: {
-        type: Number
+    max_renumeration:{
+        type: String
     },
-    min_renumeration: {
-        type: Number
-    },
-    data_limit:{
-        type : Date
+    min_renumeration:{
+        type: String
     },
     status_id:{
         type:mongoose.Schema.Types.ObjectId,
@@ -37,18 +33,7 @@ const opportunityModel = mongoose.Schema({
 
 
 
-const opportunity_condModel = mongoose.Schema({
-    id_opportunity: { 
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "Opportunity"
-    },
-    id_condidat: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "Condidat"
-    },
-  })
-  
   module.exports = Opportunity= mongoose.model('Opportunity', opportunityModel);
-  module.exports = Opportunity_condidat= mongoose.model('Opportunity_condidat', opportunity_condModel);
+
 
   
