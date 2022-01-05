@@ -16,6 +16,7 @@
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.5",
     "mongoose-auto-increment": "^5.0.1",
-    "serve-static": "^1.14.2"
+    "serve-static": "^1.14.2",
+    "cors": "2.8.5"
   }
 }
