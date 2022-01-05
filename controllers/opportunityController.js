@@ -1,9 +1,7 @@
-const mongoose = require("mongoose")
-
 // declare models
 
 
-const { Opportunity } = require('../models/opportunity');
+var Opportunity  = require("../models/opportunity")
 
 exports.list_opportunity =  async function(req,res){
     try{
