@@ -12,10 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "connect": "^3.7.0",
+    "cors": "2.8.5",
     "express": "^4.17.2",
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.5",
     "mongoose-auto-increment": "^5.0.1",
+    "node-modules": "^1.0.1",
     "serve-static": "^1.14.2"
   }
 }
