@@ -35,7 +35,7 @@ exports.add_cv_candidate = async function(req, res){
     
     // add candidate
     const cv_cand = new cv()
-
+    console.log("---------------- ", req.body)
     for(var i=1;i< req.body.length;i ++){
         dict  = req.body[i]
         if ( "email" in dict ){
