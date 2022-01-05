@@ -38,6 +38,31 @@
 //     opportunity.contrat_id = contrat._id
 //     opportunity.status_id=status._id
 
+    await opportunity.save()
+    res.send(opportunity)
+    console.log("Done")
+}
+exports.postuler = async function(req, res){
+    
+    const opp_cond = new OpportunityCond()
+    const opportunity = await Opportunity.findOne({ _id:req.body.opportunity.id_opportunity})
+    const condidat = await Candidate.findOne({ _id:req.body.opportunity.id_condidat})
+    opp_cond.id_condidat = condidat._id 
+    opp_cond.id_opportunity = opportunity._id 
+    await opp_cond.save()
+    res.send(opp_cond)
+    console.log("Done")
+}
+exports.get_opportunity =  async function(req,res){
+    try{
+        const opportunity =  await  Opportunity.findOne({ _id:req.params.id})
+        res.send(opportunity)
+    }catch{
+        res.status(404)
+        res.send("object introuvable")
+    }    
+}
+
 //     await opportunity.save()
 //     res.send(opportunity)
 //     console.log("Done")
@@ -52,3 +77,4 @@
 //     res.send(opp_cond)
 //     console.log("Done")
 // }
+
