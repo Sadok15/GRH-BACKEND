@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const routes = require("./routes")
 const cors = require('cors');
+const { json } = require("express");
 
 
 const port = 3000
@@ -12,6 +13,7 @@ mongoose
     .then(() =>{
 
         const app = express()
+        app.use(json())
         app.use(cors());
         app.use(cors({ origin: "*" }));
         app.use(function (req, res, next) {
