@@ -44,6 +44,7 @@ exports.add_opportunity = async function(req, res){
     console.log("Done")
 }
 exports.postuler = async function(req, res){
+    
     const opp_cond = new OpportunityCond()
     const opportunity = await Opportunity.findOne({ _id:req.body.opportunity.id_opportunity})
     const condidat = await Candidate.findOne({ _id:req.body.opportunity.id_condidat})
@@ -52,4 +53,13 @@ exports.postuler = async function(req, res){
     await opp_cond.save()
     res.send(opp_cond)
     console.log("Done")
+}
+exports.get_opportunity =  async function(req,res){
+    try{
+        const opportunity =  await  Opportunity.findOne({ _id:req.params.id})
+        res.send(opportunity)
+    }catch{
+        res.status(404)
+        res.send("object introuvable")
+    }    
 }
