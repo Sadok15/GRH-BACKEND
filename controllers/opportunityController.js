@@ -44,7 +44,7 @@ exports.postuler = async function(req, res){
     
     const opp_cond = new OpportunityCond()
     const opportunity = await Opportunity.findOne({ _id:req.body.opportunity.id_opportunity})
-    const condidat = await Candidate.findOne({ _id:req.body.opportunity.id_condidat})
+    const condidat = await Candidate.findOne({ mail:req.body.mail, mdp:req.body.mdp})
     opp_cond.id_condidat = condidat._id 
     opp_cond.id_opportunity = opportunity._id 
     await opp_cond.save()
