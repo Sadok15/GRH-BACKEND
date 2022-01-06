@@ -15,8 +15,9 @@ var experience = require("mongoose").model("Experience")
 exports.get_candidate =  async function(req,res){
 
     try{
-        const cands =  await Candidate.find(
-                { mail: req.body.mail },
+        console.log("------- ", req.body)
+        const cands =  await Candidate.findOne(
+                { mail: req.body.email },
                 { mdp: req.body.mdp }
             // {}
         ).exec()
