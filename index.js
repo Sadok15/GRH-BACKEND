@@ -9,7 +9,7 @@ const port = 3000
 
 // Connect to MongoDB database
 mongoose
-    .connect("mongodb://localhost:27017/grh", { useNewUrlParser: true })
+    .connect("mongodb://localhost:27017/grh1", { useNewUrlParser: true })
     .then(() =>{
 
         const app = express()
