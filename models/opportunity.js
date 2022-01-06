@@ -7,9 +7,8 @@ const opportunityModel = mongoose.Schema({
     description: {
         type: String
     },
-    societe_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "Societe"
+    adresse_soc:{
+       type:String
     },
     max_renumeration:{
         type: String
