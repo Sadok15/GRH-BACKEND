@@ -21,23 +21,13 @@ exports.list_opportunity =  async function(req,res){
 }
 
 exports.list_opportunity_cond =  async function(req,res){
-    console.log('here')
-    list=[]
+    console.log(req.params.id)
     try{
-        const cands =  await Candidate.find(
-            { mail: req.body.mail },
-            { mdp: req.body.mdp }
-             ).exec()
-        const opp_cond =  await OpportunityCond.find({ id_condidat:cands._id})
-        {
-         
-         }
-        let fLen = opp_cond.length
-        for (let i = 0; i < fLen; i++) {
-            const societe = await Societe.findOne({ _id:list_opp[i].societe_id})
-            list_opp[i].description=societe.nom
-            }
-        res.send(list)
+        const cands = await Candidate.findOne(
+                { _id:req.params.id})
+        console.log(cands._id)
+        const list_opp= await OpportunityCond.find({id_condidat:cands._id}).populate('id_opportunity').exec()
+        res.send(list_opp)
    }catch{       
         res.status(404)
         res.send("object introuvable")

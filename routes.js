@@ -16,6 +16,7 @@ router.post("/add_cv", candidate_controller.add_cv_candidate)
 
 
 router.get("/list_opportunity",opportunity_controller.list_opportunity)
+router.get("/list_opportunity_cond/:id",opportunity_controller.list_opportunity_cond)
 router.post("/add_opportunity",opportunity_controller.add_opportunity)
 router.get("/get_opportunity/:id",opportunity_controller.get_opportunity)
 router.post("/postuler",opportunity_controller.postuler)
