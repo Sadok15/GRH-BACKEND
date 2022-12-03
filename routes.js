@@ -28,7 +28,9 @@ router.post("/add_societe",societe_controller.add_societe)
 
 
 router.post("/add_status",status_controller.add_status)
-router.post("/add_contrat",contrat_controller.add_contrat)
+router.get("/list_status",status_controller.list_status)
 
+router.post("/add_contrat",contrat_controller.add_contrat)
+router.get("/list_contrat",contrat_controller.list_contrat)
 
 module.exports = router
