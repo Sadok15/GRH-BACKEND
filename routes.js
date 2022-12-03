@@ -15,14 +15,11 @@ router.post("/add_cv", candidate_controller.add_cv_candidate)
 
 
 router.post("/add_opportunity",opportunity_controller.add_opportunity)
-
-
-
 router.get("/list_opportunity",opportunity_controller.list_opportunity)
-router.get("/list_opportunity_cond/:id",opportunity_controller.list_opportunity_cond)
 router.get("/get_opportunity/:id",opportunity_controller.get_opportunity)
 router.post("/postuler",opportunity_controller.postuler)
-
+router.get("/list_opportunity_cond/:id",opportunity_controller.list_opportunity_cond)
+router.put("/update_opp",opportunity_controller.update_opp)
 
 router.post("/add_societe",societe_controller.add_societe)
 
