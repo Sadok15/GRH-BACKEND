@@ -15,17 +15,21 @@ var experience = require("mongoose").model("Experience")
 exports.get_candidate =  async function(req,res){
 
     try{
-        const cands =  await Candidate.findOne(
+        let cands =  await Candidate.findOne(
                 { mail: req.body.email },
                 { mdp: req.body.mdp }
             // {}
         ).exec()
 
+        let details = await Candidate.findById(cands._id).exec();
+
         return res.json({ 
             success: true, 
             message: "connexion valide",
+            role:details.role,
             email:req.body.email,
             id_user:cands._id
+            
           });
     }catch(error){
         return res.json({ 
@@ -46,6 +50,8 @@ exports.add_cv_candidate = async function(req, res){
             mail: dict.email,
             mdp: dict.mdp,
             num_tel: dict.num_tel,
+            //role: "recruteur"
+            role: "user"
         }) 
 
         

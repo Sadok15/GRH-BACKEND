@@ -10,6 +10,9 @@ const Candidat_schema = mongoose.Schema({
     },
     num_tel:{
         type:String,
+    },
+    role:{
+        type:String,
     }
 })
 
