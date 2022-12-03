@@ -15,17 +15,23 @@ var experience = require("mongoose").model("Experience")
 exports.get_candidate =  async function(req,res){
 
     try{
-        console.log("------- ", req.body)
         const cands =  await Candidate.findOne(
                 { mail: req.body.email },
                 { mdp: req.body.mdp }
             // {}
         ).exec()
 
-        res.send(cands)
-    }catch{
-        res.status(404)
-        res.send("object introuvable")
+        return res.json({ 
+            success: true, 
+            message: "connexion valide",
+            email:req.body.email,
+            id_user:cands._id
+          });
+    }catch(error){
+        return res.json({ 
+            success: false, 
+            message: "Erreur d'authentification : " + error.message
+          });
     }    
 }
 
