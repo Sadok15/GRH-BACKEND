@@ -115,7 +115,13 @@ exports.get_opportunity =  async function(req,res){
    
     try{
         const opportunity =  await  Opportunity.findOne({ _id:req.params.id})
-       
+
+        let status = await Status.findById(opportunity.status_id).exec()
+        let contrat = await Contrat.findById(opportunity.contrat_id).exec()
+
+        opportunity.status_id = status
+        opportunity.contrat_id = contrat
+
         return res.json({ 
             success: true, 
             message: "Valide",
