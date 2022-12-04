@@ -35,6 +35,17 @@ exports.list_opportunity_cond =  async function(req,res){
         const cands = await Candidate.findOne({ _id:req.params.id})
 
         const list_opp= await OpportunityCond.find({id_condidat:cands._id}).populate('id_opportunity').exec()
+        
+        for(var k=0; k< list_opp.length; k++ ){
+                opp = list_opp[k]["id_opportunity"]
+                let status = await Status.findById(opp.status_id).exec()
+                let contrat = await Contrat.findById(opp.contrat_id).exec()
+
+                opp.status_id = status
+                opp.contrat_id = contrat
+                
+        }
+
         return res.json({ 
             success: true, 
             message: "Valide",
