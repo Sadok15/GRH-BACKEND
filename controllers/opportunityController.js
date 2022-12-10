@@ -45,7 +45,7 @@ exports.list_opportunity_cond =  async function(req,res){
                 opp.contrat_id = contrat
                 
         }
-
+        console.log("test")
         return res.json({ 
             success: true, 
             message: "Valide",
