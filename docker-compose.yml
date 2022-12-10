@@ -1,0 +1,11 @@
+version: "2.0"
+services:
+  geoprod-ws:
+    container_name: grh-ws
+    stdin_open: true
+    tty: true
+    build: .
+    restart: always
+    environment:
+      SHELL: /bin/bash
+    network_mode: "host"
